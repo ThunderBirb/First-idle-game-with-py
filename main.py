@@ -1,25 +1,31 @@
+from replit import db
+import sys
 import time
 import threading
-import pygame, sys
-from pygame.locals import QUIT
+#import pygame
+#from pygame.locals import QUIT
+#pygame.init()
 
-bcount = 1
-fcount = 1
+TPS = 1
 
 
-
+#background processes
 def background():
-    while True:
-        print(f"background {bcount}")
-        bcount += 1
+  bcount = 0
+  while True:
+    bcount += 1
+    print(f"background {bcount}")
+    time.sleep(1)
+      
+b = threading.Thread(name='background', target=background)
 
 
 
-def foreground():
-    while True:
-        print(f"foreground {fcount}")
-        fcount += 1
+def main():
+  b.start()
+  
 
 
-b.start()
-f.start()
+if __name__ == '__main__':
+  main()
+
