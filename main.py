@@ -1,3 +1,4 @@
+import replit
 from replit import db
 import sys
 import time
