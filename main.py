@@ -3,30 +3,29 @@ from replit import db
 import sys
 import time
 import threading
-#import pygame
-#from pygame.locals import QUIT
-#pygame.init()
-
 TPS = 1
+
+
+class Player():
+  def __init__(self, name, money, exp, level, boosts: list):
+
 
 
 #background processes
 def background():
+  global bcount
   bcount = 0
   while True:
     bcount += 1
-    print(f"background {bcount}")
-    time.sleep(1)
-      
+    print(f"background count: {bcount}")
+    time.sleep(1/TPS)
+
+
 b = threading.Thread(name='background', target=background)
 
 
 
-def main():
-  b.start()
-  
 
-
-if __name__ == '__main__':
-  main()
+"""main stand-in"""
+b.start()
 
